@@ -1,9 +1,11 @@
 # CRUD-GOFIBER
 *Creating CRUD User using Gofiber framework*
+
 Pre-requisite:
   1. XAMPP for myqsl
   2. GO
   3. POSTMAN / Terminal (for CURL) / Swagger UI
+  
 Step :
   1. Open XAMPP
   2. Start XAMPP Apache and MYSQL (make sure the server is on)
