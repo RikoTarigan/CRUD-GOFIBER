@@ -1,0 +1,203 @@
+swagger: '2.0'
+info:
+  version: '1.0'
+  title: CRUD_KARYAWAN
+  contact: {}
+host: localhost:3600
+basePath: /
+securityDefinitions: {}
+schemes:
+- https
+- http
+consumes:
+- application/json
+produces:
+- application/json
+paths:
+  /login:
+    post:
+      summary: Login
+      tags:
+      - Auth
+      operationId: Login
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/LoginRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /create:
+    post:
+      summary: CreateKaryawan
+      tags:
+      - Auth
+      operationId: CreateKaryawan
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: Body
+        in: body
+        required: true
+        description: ''
+        schema:
+          $ref: '#/definitions/CreateKaryawanRequest'
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /read:
+    get:
+      summary: Get All Karyawan
+      tags:
+      - Karyawan
+      operationId: GetAllKaryawan
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: page
+        in: query
+        required: true
+        type: integer
+        format: int32
+        description: ''
+      - name: s
+        in: query
+        required: true
+        type: string
+        description: ''
+      - name: x-token
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /read/1:
+    get:
+      summary: Get By Id Karyawan
+      tags:
+      - Karyawan
+      operationId: GetByIdKaryawan
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: x-token
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /update/1:
+    patch:
+      summary: Update By Id Karyawan
+      tags:
+      - Karyawan
+      operationId: UpdateByIdKaryawan
+      deprecated: false
+      produces:
+      - application/json
+      consumes:
+      - application/x-www-form-urlencoded
+      parameters:
+      - name: x-token
+        in: header
+        required: true
+        type: string
+        description: ''
+      - name: address
+        in: formData
+        required: true
+        type: string
+        description: ''
+      - name: name
+        in: formData
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: ''
+          headers: {}
+  /delete/1:
+    delete:
+      summary: Delete By Id Karyawan
+      tags:
+      - Karyawan
+      operationId: DeleteByIdKaryawan
+      deprecated: false
+      produces:
+      - application/json
+      parameters:
+      - name: x-token
+        in: header
+        required: true
+        type: string
+        description: ''
+      responses:
+        '200':
+          description: ''
+          headers: {}
+definitions:
+  LoginRequest:
+    title: LoginRequest
+    example:
+      email: john_doe@gmail.com
+      password: johndoe
+    type: object
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+    required:
+    - email
+    - password
+  CreateKaryawanRequest:
+    title: CreateKaryawanRequest
+    example:
+      name: John Doe
+      email: john_doe@gmail.com
+      address: California, Birhgton Street no 23
+      phone: +12 231231312
+      password: johndoe
+      role: '2'
+    type: object
+    properties:
+      name:
+        type: string
+      email:
+        type: string
+      address:
+        type: string
+      phone:
+        type: string
+      password:
+        type: string
+      role:
+        type: string
+    required:
+    - name
+    - email
+    - address
+    - phone
+    - password
+    - role
+tags:
+- name: Auth
+- name: Karyawan

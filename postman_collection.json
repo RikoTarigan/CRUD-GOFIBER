@@ -1,0 +1,236 @@
+{
+	"info": {
+		"_postman_id": "b641f36c-f00d-4128-bdd7-3f179914affb",
+		"name": "CRUD_KARYAWAN",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"john_doe@gmail.com\",\r\n    \"password\":\"johndoe\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{go_url}}/login",
+							"host": [
+								"{{go_url}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateKaryawan",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"John Doe\",\r\n    \"email\":\"john_doe@gmail.com\",\r\n    \"address\":\"California, Birhgton Street no 23\",\r\n    \"phone\":\"+12 231231312\",\r\n    \"password\":\"johndoe\",\r\n    \"role\":\"2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3600/create",
+							"host": [
+								"localhost"
+							],
+							"port": "3600",
+							"path": [
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Karyawan",
+			"item": [
+				{
+					"name": "Get All Karyawan",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "{{go_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "page",
+									"value": "2",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{go_url}}/read?page=1&s=john",
+							"host": [
+								"{{go_url}}"
+							],
+							"path": [
+								"read"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "s",
+									"value": "john"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By Id Karyawan",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "{{go_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{go_url}}/read/1",
+							"host": [
+								"{{go_url}}"
+							],
+							"path": [
+								"read",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update By Id Karyawan",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "{{go_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "address",
+									"value": "United Stated no 34 Streeet",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Doe John",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{go_url}}/update/1",
+							"host": [
+								"{{go_url}}"
+							],
+							"path": [
+								"update",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete By Id Karyawan",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "{{go_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{go_url}}/delete/1",
+							"host": [
+								"{{go_url}}"
+							],
+							"path": [
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "go_token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZGRyZXNzIjoiQ2FsaWZvcm5pYSwgQmlyaGd0b24gU3RyZWV0IG5vIDIzIiwiZW1haWwiOiJqb2huX2RvZUBnbWFpbC5jb20iLCJleHBfdGltZSI6MTY2MTQzMTM5OCwibmFtZSI6IkpvaG4gRG9lIiwicm9sZSI6IjIifQ.7G4_Vgn3TqQ4ExcpLzwNZGEB2TbeKHwOshXfZ6HsROw"
+		},
+		{
+			"key": "go_url",
+			"value": "localhost:3600"
+		}
+	]
+}
