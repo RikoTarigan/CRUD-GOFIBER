@@ -12,8 +12,7 @@ Step :
   3. Open http://localhost/phpmyadmin
   4. Create a new database call crud_karyawan
   5. Please download and extract CRUD_KARYAWAN_RIKO_TEST.zip
-  6. Open CMD/Terminal, located to path that file CRUD_KARYAWAN_RIKO_TEST.zip was 
-  extracted
+  6. Open CMD/Terminal, located to path that file
   7. Type “go run main.go”
   (maybe will prompt acces local network, Please choose allow access)
   8. Please import 
