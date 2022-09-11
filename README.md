@@ -11,7 +11,7 @@ Step :
   2. Start XAMPP Apache and MYSQL (make sure the server is on)
   3. Open http://localhost/phpmyadmin
   4. Create a new database call crud_karyawan
-  5. Please download and extract CRUD_KARYAWAN_RIKO_TEST.zip
+  5. Please download or clone
   6. Open CMD/Terminal, located to path that file
   7. Type “go run main.go”
   (maybe will prompt acces local network, Please choose allow access)
